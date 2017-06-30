@@ -18,7 +18,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FirstWindow.h">
+    <ClInclude Include="Trigle.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
@@ -30,18 +30,21 @@
     <ClInclude Include="MainFrm.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="FirstWindowDoc.h">
+    <ClInclude Include="TrigleDoc.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="FirstWindowView.h">
+    <ClInclude Include="TrigleView.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\common\shader.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FirstWindow.cpp">
+    <ClCompile Include="Trigle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
@@ -50,28 +53,31 @@
     <ClCompile Include="MainFrm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="FirstWindowDoc.cpp">
+    <ClCompile Include="TrigleDoc.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="FirstWindowView.cpp">
+    <ClCompile Include="TrigleView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\shader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="FirstWindow.rc">
+    <ResourceCompile Include="Trigle.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\FirstWindow.rc2">
+    <None Include="res\Trigle.rc2">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\FirstWindowDoc.ico">
+    <Image Include="res\TrigleDoc.ico">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="res\FirstWindow.ico">
+    <Image Include="res\Trigle.ico">
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\Toolbar.bmp">

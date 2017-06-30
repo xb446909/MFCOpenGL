@@ -1,20 +1,22 @@
 
-// FirstWindowView.h : CFirstWindowView 类的接口
+// TrigleView.h : CTrigleView 类的接口
 //
 
 #pragma once
 
+#include "../GL/include/glew.h"
 #include <gl/GLU.h>
 
-class CFirstWindowView : public CView
+
+class CTrigleView : public CView
 {
 protected: // 仅从序列化创建
-	CFirstWindowView();
-	DECLARE_DYNCREATE(CFirstWindowView)
+	CTrigleView();
+	DECLARE_DYNCREATE(CTrigleView)
 
 // 特性
 public:
-	CFirstWindowDoc* GetDocument() const;
+	CTrigleDoc* GetDocument() const;
 
 // 操作
 public:
@@ -28,9 +30,20 @@ protected:
 	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
 	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
 
+	CDC* m_pDC;
+	int m_nWidth;
+	int m_nHeight;
+	GLuint m_programID;
+	GLuint m_vertexArrayID;
+	GLuint m_vertexbuffer;
+
+	BOOL SetupPixelFormat(HDC hDC);
+	BOOL InitOpenGL(HDC hDC);
+	void RenderScene();
+
 // 实现
 public:
-	virtual ~CFirstWindowView();
+	virtual ~CTrigleView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -41,24 +54,15 @@ protected:
 // 生成的消息映射函数
 protected:
 	DECLARE_MESSAGE_MAP()
-
-private:
-	CDC* m_pDC;
-	int m_nWidth;
-	int m_nHeight;
-
-	BOOL SetupPixelFormat(HDC hDC);
-	BOOL InitOpenGL(HDC hDC);
-	void RenderScene();
 public:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnDestroy();
-	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	afx_msg void OnSize(UINT nType, int cx, int cy);
 };
 
-#ifndef _DEBUG  // FirstWindowView.cpp 中的调试版本
-inline CFirstWindowDoc* CFirstWindowView::GetDocument() const
-   { return reinterpret_cast<CFirstWindowDoc*>(m_pDocument); }
+#ifndef _DEBUG  // TrigleView.cpp 中的调试版本
+inline CTrigleDoc* CTrigleView::GetDocument() const
+   { return reinterpret_cast<CTrigleDoc*>(m_pDocument); }
 #endif
 

@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E75803A8-72BC-4678-BC4F-25F5C06894AE}</ProjectGuid>
-    <RootNamespace>FirstWindow</RootNamespace>
+    <ProjectGuid>{E0AC7F76-D213-48F5-8B42-9B3803650C4B}</ProjectGuid>
+    <RootNamespace>Trigle</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
@@ -185,18 +185,17 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FirstWindow.h" />
-    <ClInclude Include="FirstWindowDoc.h" />
-    <ClInclude Include="FirstWindowView.h" />
+    <ClInclude Include="..\common\shader.hpp" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Trigle.h" />
+    <ClInclude Include="TrigleDoc.h" />
+    <ClInclude Include="TrigleView.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FirstWindow.cpp" />
-    <ClCompile Include="FirstWindowDoc.cpp" />
-    <ClCompile Include="FirstWindowView.cpp" />
+    <ClCompile Include="..\common\shader.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -204,24 +203,27 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Trigle.cpp" />
+    <ClCompile Include="TrigleDoc.cpp" />
+    <ClCompile Include="TrigleView.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="FirstWindow.rc" />
+    <ResourceCompile Include="Trigle.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\FirstWindow.rc2" />
+    <None Include="res\Trigle.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\FirstWindow.ico" />
-    <Image Include="res\FirstWindowDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\Trigle.ico" />
+    <Image Include="res\TrigleDoc.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="FirstWindow.rc" />
+      <UserProperties RESOURCE_FILE="Trigle.rc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

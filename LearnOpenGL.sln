@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FirstWindow", "FirstWindow\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Trigle", "Trigle\Trigle.vcxproj", "{E0AC7F76-D213-48F5-8B42-9B3803650C4B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrices", "Matrices\Matrices.vcxproj", "{3D2ED7BF-5E62-4986-968D-9FF0BFAEEB90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{E0AC7F76-D213-48F5-8B42-9B3803650C4B}.Release|x64.Build.0 = Release|x64
 		{E0AC7F76-D213-48F5-8B42-9B3803650C4B}.Release|x86.ActiveCfg = Release|Win32
 		{E0AC7F76-D213-48F5-8B42-9B3803650C4B}.Release|x86.Build.0 = Release|Win32
+		{3D2ED7BF-5E62-4986-968D-9FF0BFAEEB90}.Debug|x64.ActiveCfg = Debug|x64
+		{3D2ED7BF-5E62-4986-968D-9FF0BFAEEB90}.Debug|x64.Build.0 = Debug|x64
+		{3D2ED7BF-5E62-4986-968D-9FF0BFAEEB90}.Debug|x86.ActiveCfg = Debug|Win32
+		{3D2ED7BF-5E62-4986-968D-9FF0BFAEEB90}.Debug|x86.Build.0 = Debug|Win32
+		{3D2ED7BF-5E62-4986-968D-9FF0BFAEEB90}.Release|x64.ActiveCfg = Release|x64
+		{3D2ED7BF-5E62-4986-968D-9FF0BFAEEB90}.Release|x64.Build.0 = Release|x64
+		{3D2ED7BF-5E62-4986-968D-9FF0BFAEEB90}.Release|x86.ActiveCfg = Release|Win32
+		{3D2ED7BF-5E62-4986-968D-9FF0BFAEEB90}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

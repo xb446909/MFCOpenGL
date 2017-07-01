@@ -11,7 +11,7 @@
 
 #include "TrigleDoc.h"
 #include "TrigleView.h"
-#include "../common/shader.hpp"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -20,7 +20,7 @@
 
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glu32.lib")
-#pragma comment(lib, "../GL/lib/glew32.lib")
+#pragma comment(lib, "../GL/lib/glew32s.lib")
 
 
 // CTrigleView
@@ -154,9 +154,12 @@ BOOL CTrigleView::InitOpenGL(HDC hDC)
 	m_programID = LoadShaders("SimpleVertexShader.vertexshader", "SimpleFragmentShader.fragmentshader");
 
 	static const GLfloat g_vertex_buffer_data[] = {
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		0.0f,  1.0f, 0.0f,
+		-0.9f, -0.9f, 0.0f,
+		0.85f, -0.9f, 0.0f,
+		-0.9f,  0.85f, 0.0f,
+		0.9f, -0.85f, 0.0f,
+		0.9f, 0.9f, 0.0f,
+		-0.85f, 0.9f, 0.0f,
 	};
 
 	glGenBuffers(1, &m_vertexbuffer);
@@ -188,7 +191,7 @@ void CTrigleView::RenderScene()
 	);
 
 	// Draw the triangle !
-	glDrawArrays(GL_TRIANGLES, 0, 3); // 3 indices starting at 0 -> 1 triangle
+	glDrawArrays(GL_TRIANGLES, 0, 6); // 3 indices starting at 0 -> 1 triangle
 
 	glDisableVertexAttribArray(0);
 

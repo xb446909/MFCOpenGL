@@ -6,7 +6,7 @@
 
 #include "../GL/include/glew.h"
 #include <gl/GLU.h>
-
+#include "../common/shader.hpp"
 
 class CTrigleView : public CView
 {

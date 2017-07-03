@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{149C5878-68C9-43A9-9CB5-4A5DF4A49558}</ProjectGuid>
-    <RootNamespace>ColoredCube</RootNamespace>
+    <ProjectGuid>{F7CA848B-303D-4801-8945-38223C74B15F}</ProjectGuid>
+    <RootNamespace>TexturedCube</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
@@ -185,22 +185,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ColoredCube.h" />
-    <ClInclude Include="ColoredCubeDoc.h" />
-    <ClInclude Include="ColoredCubeView.h" />
-    <ClInclude Include="..\common\shader.hpp" />
-    <ClInclude Include="OpenGL.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-  </ItemGroup>
+    <ClInclude Include="TexturedCube.h" />
+    <ClInclude Include="TexturedCubeDoc.h" />
+    <ClInclude Include="TexturedCubeView.h" />
+    <ClInclude Include="..\common\shader.hpp" />    <ClInclude Include="OpenGL.h" />  </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ColoredCube.cpp" />
-    <ClCompile Include="ColoredCubeDoc.cpp" />
-    <ClCompile Include="ColoredCubeView.cpp" />
-    <ClCompile Include="..\common\shader.cpp" />
-    <ClCompile Include="OpenGL.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -208,16 +201,19 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TexturedCube.cpp" />
+    <ClCompile Include="TexturedCubeDoc.cpp" />
+    <ClCompile Include="TexturedCubeView.cpp" />
+    <ClCompile Include="..\common\shader.cpp" />    <ClCompile Include="OpenGL.cpp" />  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TexturedCube.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ColoredCube.rc" />
+    <None Include="res\TexturedCube.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\ColoredCube.rc2" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="res\ColoredCube.ico" />
-    <Image Include="res\ColoredCubeDoc.ico" />
+    <Image Include="res\TexturedCube.ico" />
+    <Image Include="res\TexturedCubeDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

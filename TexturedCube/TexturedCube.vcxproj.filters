@@ -18,7 +18,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ColoredCube.h">
+    <ClInclude Include="TexturedCube.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
@@ -30,21 +30,18 @@
     <ClInclude Include="MainFrm.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ColoredCubeDoc.h">
+    <ClInclude Include="TexturedCubeDoc.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ColoredCubeView.h">
+    <ClInclude Include="TexturedCubeView.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGL.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ColoredCube.cpp">
+    <ClCompile Include="TexturedCube.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
@@ -53,31 +50,28 @@
     <ClCompile Include="MainFrm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ColoredCubeDoc.cpp">
+    <ClCompile Include="TexturedCubeDoc.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ColoredCubeView.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGL.cpp">
+    <ClCompile Include="TexturedCubeView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ColoredCube.rc">
+    <ResourceCompile Include="TexturedCube.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\ColoredCube.rc2">
+    <None Include="res\TexturedCube.rc2">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\ColoredCubeDoc.ico">
+    <Image Include="res\TexturedCubeDoc.ico">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="res\ColoredCube.ico">
+    <Image Include="res\TexturedCube.ico">
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\Toolbar.bmp">

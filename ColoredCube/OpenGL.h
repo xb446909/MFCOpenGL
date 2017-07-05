@@ -27,6 +27,7 @@ private:
 	GLuint m_programID;
 	GLuint m_vertexArrayID;
 	GLuint m_vertexbuffer;
+	GLuint m_colorbuffer;
 
 	BOOL SetupPixelFormat(HDC hDC);
 };

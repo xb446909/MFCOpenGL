@@ -214,6 +214,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\ColoredCube.rc2" />
+    <None Include="SimpleTransform.vertexshader" />
+    <None Include="SingleColor.fragmentshader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\ColoredCube.ico" />

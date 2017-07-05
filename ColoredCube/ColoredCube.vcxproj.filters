@@ -42,6 +42,9 @@
     <ClInclude Include="OpenGL.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\common\shader.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ColoredCube.cpp">
@@ -62,6 +65,9 @@
     <ClCompile Include="OpenGL.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\common\shader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ColoredCube.rc">
@@ -72,6 +78,8 @@
     <None Include="res\ColoredCube.rc2">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="SimpleTransform.vertexshader" />
+    <None Include="SingleColor.fragmentshader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\ColoredCubeDoc.ico">

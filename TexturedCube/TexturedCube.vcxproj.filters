@@ -39,6 +39,15 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\common\shader.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\texture.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TexturedCube.cpp">
@@ -56,6 +65,15 @@
     <ClCompile Include="TexturedCubeView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\common\shader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\texture.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TexturedCube.rc">
@@ -66,6 +84,8 @@
     <None Include="res\TexturedCube.rc2">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="SimpleTransform.vertexshader" />
+    <None Include="SingleColor.fragmentshader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\TexturedCubeDoc.ico">

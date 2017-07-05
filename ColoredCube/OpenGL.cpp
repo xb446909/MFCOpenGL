@@ -13,6 +13,7 @@ COpenGL::COpenGL(HDC hDC)
 COpenGL::~COpenGL()
 {
 	glDeleteBuffers(1, &m_vertexbuffer);
+	glDeleteBuffers(1, &m_colorbuffer);
 	glDeleteVertexArrays(1, &m_vertexArrayID);
 	glDeleteProgram(m_programID);
 

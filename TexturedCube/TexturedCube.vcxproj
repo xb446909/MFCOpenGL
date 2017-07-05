@@ -185,6 +185,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\common\texture.hpp" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -192,8 +193,11 @@
     <ClInclude Include="TexturedCube.h" />
     <ClInclude Include="TexturedCubeDoc.h" />
     <ClInclude Include="TexturedCubeView.h" />
-    <ClInclude Include="..\common\shader.hpp" />    <ClInclude Include="OpenGL.h" />  </ItemGroup>
+    <ClInclude Include="..\common\shader.hpp" />
+    <ClInclude Include="OpenGL.h" />
+  </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\common\texture.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -204,12 +208,16 @@
     <ClCompile Include="TexturedCube.cpp" />
     <ClCompile Include="TexturedCubeDoc.cpp" />
     <ClCompile Include="TexturedCubeView.cpp" />
-    <ClCompile Include="..\common\shader.cpp" />    <ClCompile Include="OpenGL.cpp" />  </ItemGroup>
+    <ClCompile Include="..\common\shader.cpp" />
+    <ClCompile Include="OpenGL.cpp" />
+  </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TexturedCube.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\TexturedCube.rc2" />
+    <None Include="SimpleTransform.vertexshader" />
+    <None Include="SingleColor.fragmentshader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\TexturedCube.ico" />

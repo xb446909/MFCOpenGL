@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ColoredCube", "ColoredCube\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TexturedCube", "TexturedCube\TexturedCube.vcxproj", "{F7CA848B-303D-4801-8945-38223C74B15F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KeyboardMouse", "KeyboardMouse\KeyboardMouse.vcxproj", "{69F419D9-398D-400D-B6EA-5A6530D35307}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,14 @@ Global
 		{F7CA848B-303D-4801-8945-38223C74B15F}.Release|x64.Build.0 = Release|x64
 		{F7CA848B-303D-4801-8945-38223C74B15F}.Release|x86.ActiveCfg = Release|Win32
 		{F7CA848B-303D-4801-8945-38223C74B15F}.Release|x86.Build.0 = Release|Win32
+		{69F419D9-398D-400D-B6EA-5A6530D35307}.Debug|x64.ActiveCfg = Debug|x64
+		{69F419D9-398D-400D-B6EA-5A6530D35307}.Debug|x64.Build.0 = Debug|x64
+		{69F419D9-398D-400D-B6EA-5A6530D35307}.Debug|x86.ActiveCfg = Debug|Win32
+		{69F419D9-398D-400D-B6EA-5A6530D35307}.Debug|x86.Build.0 = Debug|Win32
+		{69F419D9-398D-400D-B6EA-5A6530D35307}.Release|x64.ActiveCfg = Release|x64
+		{69F419D9-398D-400D-B6EA-5A6530D35307}.Release|x64.Build.0 = Release|x64
+		{69F419D9-398D-400D-B6EA-5A6530D35307}.Release|x86.ActiveCfg = Release|Win32
+		{69F419D9-398D-400D-B6EA-5A6530D35307}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

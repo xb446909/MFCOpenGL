@@ -10,7 +10,9 @@ void InsertString(const char* szPathName, const char* pattern, const char* inser
 int main(int argc, char** argv)
 {
 	string projectName;
+	stringstream szPattern;
 	stringstream szFileName;
+	stringstream szInsert;
 	if (argc > 1)
 	{
 		projectName = string(argv[1]);
@@ -39,21 +41,41 @@ int main(int argc, char** argv)
 
 #pragma endregion
 
+#pragma region OpenGL.h
+
+	szFileName.clear();
+	szFileName.str("");
+	szPattern.clear();
+	szPattern.str("");
+	szInsert.clear();
+	szInsert.str("");
+	szFileName << szPath << "..\\" << projectName << "\\OpenGL.h";
+	cout << "Update file: " << szFileName.str() << endl;
+	szInsert << "#include \"" << projectName << "View.h\"" << endl;
+	InsertString(szFileName.str().c_str(), "#include", szInsert.str().c_str());
+
+#pragma endregion
+
 #pragma region Update project file(.vcxproj)
 
+	szFileName.clear();
+	szFileName.str("");
+	szPattern.clear();
+	szPattern.str("");
 	szFileName << szPath << "..\\" << projectName << "\\" << projectName << ".vcxproj";
 	cout << "Update file: " << szFileName.str() << endl;
 
-	stringstream szPattern;
 	szPattern << "<ClInclude Include=\"" << projectName << "View.h";
 	InsertString(szFileName.str().c_str(), szPattern.str().c_str(), "    <ClInclude Include=\"OpenGL.h\" />");
 	InsertString(szFileName.str().c_str(), szPattern.str().c_str(), "    <ClInclude Include=\"..\\common\\shader.hpp\" />");
+	InsertString(szFileName.str().c_str(), szPattern.str().c_str(), "    <ClInclude Include=\"..\\common\\texture.hpp\" />");
 
 	szPattern.clear();
 	szPattern.str("");
 	szPattern << "<ClCompile Include=\"" << projectName << "View.cpp";
 	InsertString(szFileName.str().c_str(), szPattern.str().c_str(), "    <ClCompile Include=\"OpenGL.cpp\" />");
 	InsertString(szFileName.str().c_str(), szPattern.str().c_str(), "    <ClCompile Include=\"..\\common\\shader.cpp\" />");
+	InsertString(szFileName.str().c_str(), szPattern.str().c_str(), "    <ClCompile Include=\"..\\common\\texture.cpp\" />");
 
 #pragma endregion
 

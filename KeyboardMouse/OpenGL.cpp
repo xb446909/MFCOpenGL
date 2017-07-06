@@ -5,10 +5,11 @@
 #pragma comment(lib, "glu32.lib")
 #pragma comment(lib, "../GL/lib/glew32s.lib")
 
-COpenGL::COpenGL(HDC hDC)
-	: m_hDC(hDC)
+COpenGL::COpenGL()
+	: m_bLBtnDown(FALSE)
 {
 }
+
 
 COpenGL::~COpenGL()
 {
@@ -32,6 +33,27 @@ COpenGL::~COpenGL()
 		}
 	}
 }
+
+
+void COpenGL::OutputString(char * fmt, ...)
+{
+	char szOutput[2048] = { 0 };
+	va_list args;
+	va_start(args, fmt);
+	vsprintf_s(szOutput, 2048, fmt, args);
+	va_end(args);
+	OutputDebugStringA(szOutput);
+}
+
+BEGIN_MESSAGE_MAP(COpenGL, CView)
+ON_WM_CREATE()
+ON_WM_DESTROY()
+ON_WM_SIZE()
+ON_WM_ERASEBKGND()
+ON_WM_MOUSEMOVE()
+ON_WM_MOUSEWHEEL()
+END_MESSAGE_MAP()
+
 
 BOOL COpenGL::init()
 {
@@ -65,6 +87,15 @@ BOOL COpenGL::init()
 
 	m_programID = LoadShaders("SimpleTransform.vertexshader", "SingleColor.fragmentshader");
 
+	m_ratio = 1;
+	m_width = 1;
+	m_height = 1;
+	m_view = lookAt(
+		glm::vec3(4, 3, 3), // Camera is at (4,3,3), in World Space
+		glm::vec3(0, 0, 0), // and looks at the origin
+		glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
+	);
+
 	// Get a handle for our "MVP" uniform
 	m_matrixID = glGetUniformLocation(m_programID, "MVP");
 
@@ -73,15 +104,7 @@ BOOL COpenGL::init()
 	//m_texture = loadBMP_custom("uvtemplate.bmp");
 	m_texture = loadDDS("uvtemplate.DDS");
 
-	mat4 projection = perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.0f);
-	mat4 view = lookAt(
-		glm::vec3(4, 3, 3), // Camera is at (4,3,3), in World Space
-		glm::vec3(0, 0, 0), // and looks at the origin
-		glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
-	);
-	mat4 model = mat4(1.0f);
-	m_MVP = projection * view * model;
-	static const GLfloat g_vertex_buffer_data[] = 
+	static const GLfloat g_vertex_buffer_data[] =
 	{
 		//-1.0f, 1.0f, -1.0f,
 		//-1.0f, -1.0f, -1.0f,
@@ -230,6 +253,16 @@ void COpenGL::RenderScene()
 
 	// Send our transformation to the currently bound shader, 
 
+	m_projection = perspective(45.0f, m_width / m_height, 0.1f, 100.0f);
+	m_view = lookAt(
+		glm::vec3(4, 3, 3), // Camera is at (4,3,3), in World Space
+		glm::vec3(0, 0, 0), // and looks at the origin
+		glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
+	);
+	mat4 model = mat4(1.0f);
+	model = scale(model, vec3(m_ratio, m_ratio, m_ratio));
+	m_MVP = m_projection * m_view * model;
+
 	// in the "MVP" uniform
 	glUniformMatrix4fv(m_matrixID, 1, GL_FALSE, &m_MVP[0][0]);
 
@@ -281,16 +314,6 @@ void COpenGL::SetSize(int nWidth, int nHeight)
 	glViewport(0, 0, nWidth, nHeight);
 }
 
-void COpenGL::OutputString(char * fmt, ...)
-{
-	char szOutput[2048] = { 0 };
-	va_list args;
-	va_start(args, fmt);
-	vsprintf_s(szOutput, 2048, fmt, args);
-	va_end(args);
-	OutputDebugStringA(szOutput);
-}
-
 BOOL COpenGL::SetupPixelFormat(HDC hDC)
 {
 	static PIXELFORMATDESCRIPTOR pfd = {
@@ -320,4 +343,77 @@ BOOL COpenGL::SetupPixelFormat(HDC hDC)
 	if (!SetPixelFormat(hDC, iPixelFormat, &pfd)) return FALSE;
 	return TRUE;
 }
-
+
+
+
+int COpenGL::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	if (CView::OnCreate(lpCreateStruct) == -1)
+		return -1;
+
+	// TODO:  在此添加您专用的创建代码
+	m_pDC = new CClientDC(this);
+	SetHDC(m_pDC->GetSafeHdc());
+	if (!init())
+		MessageBox(_T("Init opengl error"));
+	return 0;
+}
+
+
+void COpenGL::OnDestroy()
+{
+	CView::OnDestroy();
+
+	// TODO: 在此处添加消息处理程序代码
+	if (m_pDC != NULL)
+		delete m_pDC;
+	m_pDC = NULL;
+}
+
+
+void COpenGL::OnSize(UINT nType, int cx, int cy)
+{
+	CView::OnSize(nType, cx, cy);
+
+	// TODO: 在此处添加消息处理程序代码
+	if (cy == 0)
+	{
+		cy = 1;
+	}
+	glViewport(0, 0, cx, cy);
+	m_width = cx;
+	m_height = cy;
+}
+
+
+BOOL COpenGL::OnEraseBkgnd(CDC* pDC)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+
+	return TRUE;
+}
+
+
+void COpenGL::OnMouseMove(UINT nFlags, CPoint point)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+
+	if (nFlags & MK_LBUTTON)
+	{
+
+	}
+	if (nFlags & MK_RBUTTON)
+	{
+
+	}
+	CView::OnMouseMove(nFlags, point);
+}
+
+
+BOOL COpenGL::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	m_ratio *= (zDelta > 0) ? 0.9f : 1.1f;
+	RenderScene();
+	return CView::OnMouseWheel(nFlags, zDelta, pt);
+}

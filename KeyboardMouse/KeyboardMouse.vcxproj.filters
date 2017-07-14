@@ -84,6 +84,8 @@
     <None Include="res\KeyboardMouse.rc2">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="SimpleTransform.vertexshader" />
+    <None Include="SingleColor.fragmentshader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\KeyboardMouseDoc.ico">

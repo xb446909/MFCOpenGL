@@ -13,4 +13,10 @@ void main()
 	// Output color = red 
 	color = texture( myTextureSampler, UV ).rgb;
 
+	if ((abs(UV[0] - 0.1f) < 1e-8) && (abs(UV[1] - 0.1f) < 1e-8))
+		color = vec3(1, 0, 0);
+	if ((abs(UV[0] - 0.2f) < 1e-8) && (abs(UV[1] - 0.2f) < 1e-8))
+		color = vec3(0, 1, 0);
+	if ((abs(UV[0] - 0.3f) < 1e-8) && (abs(UV[1] - 0.3f) < 1e-8))
+		color = vec3(0, 0, 1);
 }

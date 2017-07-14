@@ -73,9 +73,10 @@ BOOL COpenGL::init()
 	//m_texture = loadBMP_custom("uvtemplate.bmp");
 	m_texture = loadDDS("uvtemplate.DDS");
 
-	mat4 projection = perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.0f);
+	//mat4 projection = perspective(45.0f, 1.0f, 4.0f, 100.0f);
+	mat4 projection = ortho(-2.0f, 2.0f, 2.0f, -2.0f, 4.0f, 100.0f);
 	mat4 view = lookAt(
-		glm::vec3(4, 3, 3), // Camera is at (4,3,3), in World Space
+		glm::vec3(4, 0, 0), // Camera is at (4,3,3), in World Space
 		glm::vec3(0, 0, 0), // and looks at the origin
 		glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
 	);
@@ -278,7 +279,8 @@ void COpenGL::SetSize(int nWidth, int nHeight)
 	{
 		nHeight = 1;
 	}
-	glViewport(0, 0, nWidth, nHeight);
+	int nSize = min(nWidth, nHeight);
+	glViewport((nWidth - nSize) / 2, (nHeight - nSize) / 2, nSize, nSize);
 }
 
 void COpenGL::OutputString(char * fmt, ...)

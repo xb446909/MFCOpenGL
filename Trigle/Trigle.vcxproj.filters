@@ -72,6 +72,8 @@
     <None Include="res\Trigle.rc2">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="SimpleFragmentShader.fragmentshader" />
+    <None Include="SimpleVertexShader.vertexshader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\TrigleDoc.ico">

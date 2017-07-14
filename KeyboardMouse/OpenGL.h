@@ -176,6 +176,7 @@ private:
 	void updateProjectionMatrix();
 	const mat4 & getModelViewMatrix();
 	const mat4 & getProjectionMatrix();
+	mat4 FromToRotation(const vec3 from, const vec3 to);
 public:
 	afx_msg void OnDestroy();
 	afx_msg void OnSize(UINT nType, int cx, int cy);

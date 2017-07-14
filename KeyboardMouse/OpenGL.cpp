@@ -972,6 +972,77 @@ const mat4& COpenGL::getProjectionMatrix()
 	return m_projMatd;
 }
 
+mat4 COpenGL::FromToRotation(const vec3 from, const vec3 to)
+{
+	float c = dot(from, to);
+	float f = (c < 0 ? -c : c);
+	mat4 result;
+
+	if (1.0 - f < 1e-6) //"from" and "to"-vector almost parallel
+	{
+		// "to" vector most nearly orthogonal to "from"
+		vec3 x(0, 0, 0);
+		if (fabs(from.x) < fabs(from.y))
+		{
+			if (fabs(from.x) < fabs(from.z))
+				x.x = static_cast<float>(1);
+			else
+				x.z = static_cast<float>(1);
+		}
+		else
+		{
+			if (fabs(from.y) < fabs(from.z))
+				x.y = static_cast<float>(1);
+			else
+				x.z = static_cast<float>(1);
+		}
+
+		vec3 u = x - from;
+		vec3 v = x - to;
+
+		float c1 = 2 / dot(u, u);
+		float c2 = 2 / dot(v, v);
+		float c3 = c1 * c2  * dot(u, v);
+
+		for (unsigned i = 0; i<3; i++)
+		{
+			for (unsigned j = 0; j<3; j++)
+			{
+				result[j][i] = c3 * v[i] * u[j]
+					- c2 * v[i] * v[j]
+					- c1 * u[i] * u[j];
+			}
+			result[i][i] += static_cast<float>(1);
+		}
+	}
+	else  // the most common case, unless "from"="to", or "from"=-"to"
+	{
+		//see Efficiently Building a Matrix to Rotate One Vector to Another
+		//T. Moller and J.F. Hugues (1999)
+		vec3 v = cross(from, to);
+		float h = 1 / (1 + c);
+		float hvx = h * v.x;
+		float hvz = h * v.z;
+		float hvxy = hvx * v.y;
+		float hvxz = hvx * v.z;
+		float hvyz = hvz * v.y;
+
+		result[0][0] = c + hvx * v.x;
+		result[1][0] = hvxy + v.z;
+		result[2][0] = hvxz - v.y;
+
+		result[0][1] = hvxy - v.z;
+		result[1][1] = c + h * v.y * v.y;
+		result[2][1] = hvyz + v.x;
+
+		result[0][2] = hvxz + v.y;
+		result[1][2] = hvyz - v.x;
+		result[2][2] = c + hvz * v.z;
+	}
+
+	return result;
+}
+
 void COpenGL::getGLCameraParameters(CameraParam & params)
 {
 	//get/compute the modelview matrix
@@ -1107,6 +1178,11 @@ void COpenGL::OnMouseMove(UINT nFlags, CPoint point)
 	if (nFlags & MK_LBUTTON)
 	{
 		vec3 t = convertMousePositionToOrientation(1, 10);
+
+		vec3 v1(1, 0, 1);
+		vec3 v2(1, 1, 0);
+		mat4 r = FromToRotation(v1, v2);
+
 		OutputString("(1, 10) --> (%lf, %lf, %lf)\r\n", t.x, t.y, t.z);
 		vec3 mouse = m_vecAxisY * fDiffY + m_vecAxisX * fDiffX;
 		vec3 rotateVec = cross(mouse, m_vecAxisZ);
